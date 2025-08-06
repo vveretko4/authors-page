@@ -20,6 +20,14 @@ import { FeatherTwitter } from "@subframe/core";
 import { FeatherMail } from "@subframe/core";
 
 function Home() {
+  // Ref for the "Imagine That! Series" section
+  const imagineThatRef = React.useRef<HTMLDivElement>(null);
+
+  // Handler to scroll to the section
+  const handleScrollToImagineThat = () => {
+    imagineThatRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <div className="flex w-full flex-col items-start bg-warning-700">
       <div className="flex w-full flex-col items-center justify-center gap-8 bg-success-50 px-6 py-24 mobile:h-auto mobile:w-full mobile:flex-none">
@@ -36,14 +44,20 @@ function Home() {
             <div className="flex flex-wrap items-center gap-4">
               <Button
                 size="large"
-                onClick={(event: React.MouseEvent<HTMLButtonElement>) => {}}
+                onClick={handleScrollToImagineThat}
               >
                 Explore Our Books
               </Button>
               <Button
                 variant="brand-tertiary"
                 size="large"
-                onClick={(event: React.MouseEvent<HTMLButtonElement>) => {}}
+                onClick={() => {
+                  window.open(
+                    "https://www.amazon.com/stores/Milo-Rivers/author/B0DLC586BQ?ref=ap_rdr&isDramIntegrated=true&shoppingPortalEnabled=true&ccs_id=b7351675-97f7-4021-a7de-20c751397d41",
+                    "_blank",
+                    "noopener,noreferrer"
+                  );
+                }}
               >
                 Visit Our Amazon Page
               </Button>
@@ -96,7 +110,10 @@ function Home() {
           </div>
         </div>
       </div>
-      <div className="flex w-full flex-col items-center justify-center gap-12 border-b border-solid border-neutral-border bg-neutral-50 px-6 py-24">
+      <div
+        ref={imagineThatRef}
+        className="flex w-full flex-col items-center justify-center gap-12 border-b border-solid border-neutral-border bg-neutral-50 px-6 py-24"
+      >
         <div className="flex w-full max-w-[1280px] flex-col items-center gap-8">
           <span className="text-heading-1 font-heading-1 text-default-font">
             Imagine That! Series
