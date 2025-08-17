@@ -3,21 +3,15 @@
 import React from "react";
 import { Button } from "@/ui/components/Button";
 import { IconWithBackground } from "@/ui/components/IconWithBackground";
-import { FeatherLightbulb } from "@subframe/core";
-import { FeatherBookOpenText } from "@subframe/core";
-import { FeatherCompass } from "@subframe/core";
+import { FeatherLightbulb, FeatherBookOpenText, FeatherCompass, FeatherInfo, FeatherArrowRight, FeatherShoppingCart, FeatherStar, FeatherSend, FeatherFacebook, FeatherInstagram, FeatherTwitter, FeatherMail } from "@subframe/core";
 import * as SubframeCore from "@subframe/core";
-import { FeatherInfo } from "@subframe/core";
-import { FeatherArrowRight } from "@subframe/core";
-import { FeatherShoppingCart } from "@subframe/core";
-import { FeatherStar } from "@subframe/core";
 import { TextField } from "@/ui/components/TextField";
-import { FeatherSend } from "@subframe/core";
 import { IconButton } from "@/ui/components/IconButton";
-import { FeatherFacebook } from "@subframe/core";
-import { FeatherInstagram } from "@subframe/core";
-import { FeatherTwitter } from "@subframe/core";
-import { FeatherMail } from "@subframe/core";
+
+// DO NOT expose your Supabase secret key in production client-side code.
+// Use an API route or serverless function to handle email submissions securely.
+const supabaseUrl = "https://yrvhfolbguoebdcguptp.supabase.co";
+const supabaseAnonKey = "YOUR_PUBLIC_ANON_KEY"; // Replace with your public anon key
 
 function Home() {
   // Ref for the "Imagine That! Series" section
@@ -26,6 +20,35 @@ function Home() {
   // Handler to scroll to the section
   const handleScrollToImagineThat = () => {
     imagineThatRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const [email, setEmail] = React.useState("");
+  const [loading, setLoading] = React.useState(false);
+  const [success, setSuccess] = React.useState(false);
+  const [error, setError] = React.useState("");
+
+  // Use fetch to call your own API route for production
+  const handleEmailSubmit = async () => {
+    setLoading(true);
+    setError("");
+    setSuccess(false);
+
+    try {
+      const response = await fetch("/api/email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+      if (response.ok) {
+        setSuccess(true);
+        setEmail("");
+      } else {
+        setError("Failed to submit. Please try again.");
+      }
+    } catch (err) {
+      setError("Failed to submit. Please try again.");
+    }
+    setLoading(false);
   };
 
   return (
@@ -535,17 +558,26 @@ function Home() {
             >
               <TextField.Input
                 placeholder="your@email.com"
-                value=""
-                onChange={(event: React.ChangeEvent<HTMLInputElement>) => {}}
+                value={email}
+                onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+                  setEmail(event.target.value)
+                }
               />
             </TextField>
             <Button
               size="large"
               icon={<FeatherSend />}
-              onClick={(event: React.MouseEvent<HTMLButtonElement>) => {}}
+              onClick={handleEmailSubmit}
+              disabled={loading || !email}
             >
-              Get Free PDF Sample
+              {loading ? "Sending..." : "Get Free PDF Sample"}
             </Button>
+            {success && (
+              <span className="text-success-700">Thank you! Check your inbox soon.</span>
+            )}
+            {error && (
+              <span className="text-error-700">{error}</span>
+            )}
           </div>
         </div>
       </div>
