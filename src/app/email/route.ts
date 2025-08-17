@@ -1,16 +1,19 @@
 import { createClient } from "@supabase/supabase-js";
 
 const supabaseUrl = "https://yrvhfolbguoebdcguptp.supabase.co";
-const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY; // Store securely in env
-
+const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY!;
 const supabase = createClient(supabaseUrl, supabaseKey);
 
-export default async function handler(req, res) {
-  if (req.method !== "POST") return res.status(405).end();
-  const { email } = req.body;
-  if (!email) return res.status(400).json({ error: "Email required" });
+export async function POST(request: Request) {
+  const { email } = await request.json();
+  if (!email) {
+    return new Response(JSON.stringify({ error: "Email required" }), { status: 400 });
+  }
 
   const { error } = await supabase.from("email").insert([{ email }]);
-  if (error) return res.status(500).json({ error: error.message });
-  res.status(200).json({ success: true });
+  if (error) {
+    return new Response(JSON.stringify({ error: error.message }), { status: 500 });
+  }
+
+  return new Response(JSON.stringify({ success: true }), { status: 200 });
 }
