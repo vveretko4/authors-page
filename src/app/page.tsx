@@ -594,7 +594,7 @@ function Home() {
           />
         </div>
         <span className="text-caption font-caption text-white text-center">
-          © 2024 Milo Rivers. All rights reserved.
+          © 2025 Milo Rivers. All rights reserved.
         </span>
       </div>
     </div>
