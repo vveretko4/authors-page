@@ -91,6 +91,7 @@ function Home() {
               <img
                 className="h-96 grow shrink-0 basis-0 object-cover"
                 src="https://res.cloudinary.com/subframe/image/upload/v1752687728/uploads/14723/sxsiwej5dotpbw6ghled.png"
+                alt="Imagine That! children book series"
               />
             </div>
           </div>
@@ -102,6 +103,7 @@ function Home() {
             <img
               className="h-72 w-full flex-none rounded-lg object-cover"
               src="https://res.cloudinary.com/subframe/image/upload/v1752687400/uploads/14723/oiesvs4v4q2s1pgmzaij.png"
+              alt="Vitaliy and Nadia, creators of Milo Rivers"
             />
           </div>
           <div className="flex min-w-[320px] flex-col items-start justify-center gap-6">
@@ -153,6 +155,7 @@ function Home() {
                   <img
                     className="w-full flex-none rounded-md"
                     src="https://res.cloudinary.com/subframe/image/upload/v1752310546/uploads/14723/cfvjejo56fiptt9jkefv.png"
+                    alt="Imagine That! Nature's Secrets"
                   />
                 </SubframeCore.HoverCard.Trigger>
                 <SubframeCore.HoverCard.Portal>
@@ -166,6 +169,7 @@ function Home() {
                       <img
                         className="h-96 w-96 flex-none object-cover"
                         src="https://res.cloudinary.com/subframe/image/upload/v1752310546/uploads/14723/sfkwe2uzwc6p98fnsunt.png"
+                        alt="Imagine That! Nature's Secrets look inside"
                       />
                     </div>
                   </SubframeCore.HoverCard.Content>
@@ -199,6 +203,7 @@ function Home() {
                   <img
                     className="w-full flex-none rounded-md"
                     src="https://res.cloudinary.com/subframe/image/upload/v1752310574/uploads/14723/o4tw8n2unrfhwtzxvx3m.png"
+                    alt="Imagine That! Under The Sea"
                   />
                 </SubframeCore.HoverCard.Trigger>
                 <SubframeCore.HoverCard.Portal>
@@ -212,6 +217,7 @@ function Home() {
                       <img
                         className="w-96 flex-none"
                         src="https://res.cloudinary.com/subframe/image/upload/v1752310574/uploads/14723/i0wytao9ydab0y79tztx.png"
+                        alt="Imagine That! Under The Sea look inside"
                       />
                     </div>
                   </SubframeCore.HoverCard.Content>
@@ -245,6 +251,7 @@ function Home() {
                   <img
                     className="w-full flex-none rounded-md"
                     src="https://res.cloudinary.com/subframe/image/upload/v1752310596/uploads/14723/hn4bkh5fprzudneafgtj.png"
+                    alt="Imagine That! Amazing Animals"
                   />
                 </SubframeCore.HoverCard.Trigger>
                 <SubframeCore.HoverCard.Portal>
@@ -258,6 +265,7 @@ function Home() {
                       <img
                         className="w-96 flex-none"
                         src="https://res.cloudinary.com/subframe/image/upload/v1752310597/uploads/14723/u7abttdogdyfqo0sq3fx.png"
+                        alt="Imagine That! Amazing Animals look inside"
                       />
                     </div>
                   </SubframeCore.HoverCard.Content>
@@ -291,6 +299,7 @@ function Home() {
                   <img
                     className="w-full flex-none rounded-md"
                     src="https://res.cloudinary.com/subframe/image/upload/v1752310675/uploads/14723/jvumkftijdyonjwco2st.png"
+                    alt="The Secrets Of The Sky"
                   />
                 </SubframeCore.HoverCard.Trigger>
                 <SubframeCore.HoverCard.Portal>
@@ -304,6 +313,7 @@ function Home() {
                       <img
                         className="w-96 flex-none"
                         src="https://res.cloudinary.com/subframe/image/upload/v1752310675/uploads/14723/x6mgprb3c6rw3usrwwru.png"
+                        alt="The Secrets Of The Sky look inside"
                       />
                     </div>
                   </SubframeCore.HoverCard.Content>
@@ -337,6 +347,7 @@ function Home() {
                   <img
                     className="w-full flex-none rounded-md"
                     src="https://res.cloudinary.com/subframe/image/upload/v1752310694/uploads/14723/ytwiwcegniwki1ctqopb.png"
+                    alt="Journey Through The Jungle"
                   />
                 </SubframeCore.HoverCard.Trigger>
                 <SubframeCore.HoverCard.Portal>
@@ -350,6 +361,7 @@ function Home() {
                       <img
                         className="w-96 flex-none"
                         src="https://res.cloudinary.com/subframe/image/upload/v1752311541/uploads/14723/cqazdq0sgwicpopgjanz.png"
+                        alt="Journey Through The Jungle look inside"
                       />
                     </div>
                   </SubframeCore.HoverCard.Content>
@@ -407,6 +419,7 @@ function Home() {
               <img
                 className="w-full grow shrink-0 basis-0 rounded-md object-contain"
                 src="https://res.cloudinary.com/subframe/image/upload/v1752314088/uploads/14723/y02fhmnb6cmh9ldagf7a.png"
+                alt="Coloring book - Fantasy Doors and Windows. Look inside"
               />
               <span className="text-heading-2 font-heading-2 text-default-font">
                 Fantasy Doors and Windows: A Magical Coloring Adventure for All
@@ -429,6 +442,7 @@ function Home() {
               <img
                 className="w-full flex-none rounded-md"
                 src="https://res.cloudinary.com/subframe/image/upload/v1752314087/uploads/14723/g50fmos3dsi5mb5w4t4v.png"
+                alt="Coloring book - Whiskers & Wonders. Look inside"
               />
               <span className="text-heading-2 font-heading-2 text-default-font">
                 Whiskers &amp; Wonders: A Cat Coloring Book for Kids and Adults
@@ -478,6 +492,7 @@ function Home() {
             <img
               className="h-144 grow shrink-0 basis-0 rounded-lg object-contain"
               src="https://res.cloudinary.com/subframe/image/upload/v1754070229/uploads/14723/uer6ytkz1k5n512i32eg.png"
+              alt="Lenny the Little Explorer book cover"
             />
           </div>
         </div>
@@ -542,66 +557,40 @@ function Home() {
           </div>
         </div>
       </div>
-      <div className="flex w-full flex-col items-center justify-center gap-12 bg-brand-100 px-6 py-24">
-        <div className="flex w-full max-w-[576px] flex-col items-center gap-8">
-          <span className="text-heading-1 font-heading-1 text-default-font text-center">
-            Join Milo&#39;s Story Club
-          </span>
-          <span className="text-body font-body text-default-font text-center">
-            Sign up for new books, free PDF samples, and exclusive content
-          </span>
-          <div className="flex flex-col items-center gap-4">
-            <TextField
-              className="h-auto w-full flex-none"
-              label="Email Address"
-              helpText=""
-            >
-              <TextField.Input
-                placeholder="your@email.com"
-                value={email}
-                onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
-                  setEmail(event.target.value)
-                }
-              />
-            </TextField>
-            <Button
-              size="large"
-              icon={<FeatherSend />}
-              onClick={handleEmailSubmit}
-              disabled={loading || !email}
-            >
-              {loading ? "Sending..." : "Get Free PDF Sample"}
-            </Button>
-            {success && (
-              <span className="text-success-700">Thank you! Check your inbox soon.</span>
-            )}
-            {error && (
-              <span className="text-error-700">{error}</span>
-            )}
-          </div>
-        </div>
-      </div>
       <div className="flex w-full flex-col items-center justify-center gap-8 bg-neutral-900 px-6 py-12">
         <div className="flex flex-wrap items-center justify-center gap-4">
           <IconButton
             variant="inverse"
             icon={<FeatherFacebook />}
-            onClick={(event: React.MouseEvent<HTMLButtonElement>) => {}}
+            onClick={() => {
+              window.open(
+                "https://www.facebook.com/profile.php?id=61574014714387",
+                "_blank",
+                "noopener,noreferrer"
+              );
+            }}
           />
           <IconButton
             variant="inverse"
             icon={<FeatherInstagram />}
-            onClick={(event: React.MouseEvent<HTMLButtonElement>) => {}}
-          />
-          <IconButton
-            variant="inverse"
-            icon={<FeatherTwitter />}
-            onClick={(event: React.MouseEvent<HTMLButtonElement>) => {}}
+            onClick={() => {
+              window.open(
+                "https://www.instagram.com/vveretko.nft/",
+                "_blank",
+                "noopener,noreferrer"
+              );
+            }}
           />
           <IconButton
             variant="inverse"
             icon={<FeatherMail />}
-            onClick={(event: React.MouseEvent<HTMLButtonElement>) => {}}
+            onClick={() => {
+              window.open(
+                "mailto:miloriversbooks@gmail.com",
+                "_blank",
+                "noopener,noreferrer"
+              );
+            }}
           />
         </div>
         <span className="text-caption font-caption text-white text-center">
