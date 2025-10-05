@@ -1,5 +1,12 @@
 "use client";
 
+// Add this to fix the TypeScript error
+declare global {
+  interface Window {
+    gtag?: (...args: any[]) => void;
+  }
+}
+
 import { useEffect } from "react";
 import { usePathname } from "next/navigation";
 
