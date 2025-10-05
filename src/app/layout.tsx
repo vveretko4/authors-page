@@ -2,19 +2,20 @@ import "./globals.css";
 import type { Metadata } from "next";
 import Script from "next/script";
 import { Analytics } from "@/ui/components/Analytics";
+import TrackPageViews from "./TrackPageViews";
 
 export const metadata: Metadata = {
   title: "Milo Rivers",
   description: "Children's book author and illustrator",
 };
 
+const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
+
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
-
   return (
     <html lang="en">
       <head>
@@ -24,7 +25,6 @@ export default function RootLayout({
           href="https://fonts.gstatic.com"
           crossOrigin="anonymous"
         />
-        {/* eslint-disable-next-line */}
         <link
           href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
           rel="stylesheet"
@@ -51,6 +51,7 @@ export default function RootLayout({
       </head>
 
       <body>
+        <TrackPageViews />
         {children}
         <Analytics />
       </body>
