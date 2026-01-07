@@ -575,7 +575,7 @@ function Home() {
             icon={<FeatherInstagram />}
             onClick={() => {
               window.open(
-                "https://www.instagram.com/vveretko.nft/",
+                "https://www.instagram.com/miloriversbooks/",
                 "_blank",
                 "noopener,noreferrer"
               );
