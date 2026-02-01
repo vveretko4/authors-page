@@ -6,3 +6,19 @@ export const pageview = (url: string) => {
     window.gtag('config', GA_ID, { page_path: url });
   }
 };
+
+export const gtagSendEvent = (url: string) => {
+  const callback = function () {
+    if (typeof url === 'string') {
+      window.location.href = url;
+    }
+  };
+  if (typeof window !== 'undefined' && window.gtag) {
+    // @ts-ignore
+    window.gtag('event', 'manual_event_OUTBOUND_CLICK', {
+      'event_callback': callback,
+      'event_timeout': 2000,
+    });
+  }
+  return false;
+};

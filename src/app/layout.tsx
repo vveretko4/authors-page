@@ -56,6 +56,23 @@ export default function RootLayout({
                 });
               `}
             </Script>
+            {/* Google tag (gtag.js) event - delayed navigation helper */}
+            <Script id="ga-conversion-tracking" strategy="afterInteractive">
+              {`
+                function gtagSendEvent(url) {
+                  var callback = function () {
+                    if (typeof url === 'string') {
+                      window.location = url;
+                    }
+                  };
+                  gtag('event', 'manual_event_OUTBOUND_CLICK', {
+                    'event_callback': callback,
+                    'event_timeout': 2000,
+                  });
+                  return false;
+                }
+              `}
+            </Script>
           </>
         )}
       </head>
