@@ -2,12 +2,12 @@
 
 import React from "react";
 import { Button } from "@/ui/components/Button";
+import { LinkButton } from "@/ui/components/LinkButton";
 import { IconWithBackground } from "@/ui/components/IconWithBackground";
 import { FeatherLightbulb, FeatherBookOpenText, FeatherCompass, FeatherInfo, FeatherArrowRight, FeatherShoppingCart, FeatherStar, FeatherSend, FeatherFacebook, FeatherInstagram, FeatherTwitter, FeatherMail } from "@subframe/core";
 import * as SubframeCore from "@subframe/core";
 import { TextField } from "@/ui/components/TextField";
 import { IconButton } from "@/ui/components/IconButton";
-import { gtagSendEvent } from "@/lib/gtag";
 
 // DO NOT expose your Supabase secret key in production client-side code.
 // Use an API route or serverless function to handle email submissions securely.
@@ -75,7 +75,7 @@ function Home() {
               <Button
                 variant="brand-tertiary"
                 size="large"
-                onClick={() => gtagSendEvent("https://www.amazon.com/stores/Milo-Rivers/author/B0DLC586BQ?maas=maas_adg_3148BF35775AC8D275DA494864F45B1E_afap_abs&ref_=aa_maas&tag=maas")}
+                href="https://www.amazon.com/stores/Milo-Rivers/author/B0DLC586BQ?maas=maas_adg_3148BF35775AC8D275DA494864F45B1E_afap_abs&ref_=aa_maas&tag=maas"
               >
                 Visit Our Amazon Page
               </Button>
@@ -181,7 +181,7 @@ function Home() {
               </span>
               <Button
                 icon={<FeatherInfo />}
-                onClick={() => gtagSendEvent("https://www.amazon.com/stores/Milo-Rivers/author/B0DLC586BQ?maas=maas_adg_3148BF35775AC8D275DA494864F45B1E_afap_abs&ref_=aa_maas&tag=maas")}
+                href="https://www.amazon.com/stores/Milo-Rivers/author/B0DLC586BQ?maas=maas_adg_3148BF35775AC8D275DA494864F45B1E_afap_abs&ref_=aa_maas&tag=maas"
               >
                 Learn More
               </Button>
@@ -223,7 +223,7 @@ function Home() {
               </span>
               <Button
                 icon={<FeatherInfo />}
-                onClick={() => gtagSendEvent("https://www.amazon.com/Imagine-That-Under-Milo-Rivers/dp/B0DMNDFDVY?maas=maas_adg_7B2C4453DE5EB7CC264D8533DAEF1C1E_afap_abs&ref_=aa_maas&tag=maas")}
+                href="https://www.amazon.com/Imagine-That-Under-Milo-Rivers/dp/B0DMNDFDVY?maas=maas_adg_7B2C4453DE5EB7CC264D8533DAEF1C1E_afap_abs&ref_=aa_maas&tag=maas"
               >
                 Learn More
               </Button>
@@ -265,7 +265,7 @@ function Home() {
               </span>
               <Button
                 icon={<FeatherInfo />}
-                onClick={() => gtagSendEvent("https://www.amazon.com/gp/product/B0DN69PV1B?maas=maas_adg_7ED8F599FC4806A486CB5A65E4661B5F_afap_abs&ref_=aa_maas&tag=maas")}
+                href="https://www.amazon.com/gp/product/B0DN69PV1B?maas=maas_adg_7ED8F599FC4806A486CB5A65E4661B5F_afap_abs&ref_=aa_maas&tag=maas"
               >
                 Learn More
               </Button>
@@ -307,7 +307,7 @@ function Home() {
               </span>
               <Button
                 icon={<FeatherInfo />}
-                onClick={() => gtagSendEvent("https://www.amazon.com/gp/product/B0DNMKKD2N?maas=maas_adg_4F496DA4601846DF7414A0047DB88A17_afap_abs&ref_=aa_maas&tag=maas")}
+                href="https://www.amazon.com/gp/product/B0DNMKKD2N?maas=maas_adg_4F496DA4601846DF7414A0047DB88A17_afap_abs&ref_=aa_maas&tag=maas"
               >
                 Learn More
               </Button>
@@ -348,19 +348,19 @@ function Home() {
               </span>
               <Button
                 icon={<FeatherInfo />}
-                onClick={() => gtagSendEvent("https://www.amazon.com/gp/product/B0DRNJ25DD?maas=maas_adg_31CD6D4E1ECE0FEAFF9D9991F9C17811_afap_abs&ref_=aa_maas&tag=maas")}
+                href="https://www.amazon.com/gp/product/B0DRNJ25DD?maas=maas_adg_31CD6D4E1ECE0FEAFF9D9991F9C17811_afap_abs&ref_=aa_maas&tag=maas"
               >
                 Learn More
               </Button>
             </div>
-            <div className="flex items-end justify-end gap-4 self-stretch rounded-lg border border-solid border-neutral-border bg-neutral-50 px-6 py-6 cursor-pointer"
-              onClick={() => gtagSendEvent("https://www.amazon.com/dp/B0CW19RFNM?maas=maas_adg_330C56B63378D5A1DDF0A462EF288B2A_afap_abs&ref_=aa_maas&tag=maas")}
+            <LinkButton
+              href="https://www.amazon.com/dp/B0CW19RFNM?maas=maas_adg_330C56B63378D5A1DDF0A462EF288B2A_afap_abs&ref_=aa_maas&tag=maas"
+              iconRight={<FeatherArrowRight className="text-heading-2 font-heading-2 text-default-font" />}
             >
               <span className="text-body font-body text-subtext-color">
                 View All
               </span>
-              <FeatherArrowRight className="text-heading-2 font-heading-2 text-default-font" />
-            </div>
+            </LinkButton>
           </div>
         </div>
       </div>
@@ -386,7 +386,7 @@ function Home() {
               </span>
               <Button
                 icon={<FeatherInfo />}
-                onClick={() => gtagSendEvent("https://www.amazon.com/Fantasy-Doors-Windows-Coloring-Adventure/dp/B0DWMMMLQX?maas=maas_adg_81B7F0F5AB4E2778B809EEB7E8322E5D_afap_abs&ref_=aa_maas&tag=maas")}
+                href="https://www.amazon.com/Fantasy-Doors-Windows-Coloring-Adventure/dp/B0DWMMMLQX?maas=maas_adg_81B7F0F5AB4E2778B809EEB7E8322E5D_afap_abs&ref_=aa_maas&tag=maas"
               >
                 Learn More
               </Button>
@@ -402,7 +402,7 @@ function Home() {
               </span>
               <Button
                 icon={<FeatherInfo />}
-                onClick={() => gtagSendEvent("https://www.amazon.com/Whiskers-Wonders-Coloring-Book-Adults/dp/B0DTGCPKN2?maas=maas_adg_1E0B8C40F14513B43E0D70315D185F44_afap_abs&ref_=aa_maas&tag=maas")}
+                href="https://www.amazon.com/Whiskers-Wonders-Coloring-Book-Adults/dp/B0DTGCPKN2?maas=maas_adg_1E0B8C40F14513B43E0D70315D185F44_afap_abs&ref_=aa_maas&tag=maas"
               >
                 Learn More
               </Button>
@@ -424,7 +424,7 @@ function Home() {
             <Button
               size="large"
               icon={<FeatherShoppingCart />}
-              onClick={() => gtagSendEvent("https://www.amazon.com/Lenny-Little-Explorer-Day-Adventure/dp/B0DLBP392P?maas=maas_adg_BC27954261EAB757AF4E08CB7821C46A_afap_abs&ref_=aa_maas&tag=maas")}
+              href="https://www.amazon.com/Lenny-Little-Explorer-Day-Adventure/dp/B0DLBP392P?maas=maas_adg_BC27954261EAB757AF4E08CB7821C46A_afap_abs&ref_=aa_maas&tag=maas"
             >
               Get Your Copy
             </Button>
@@ -503,17 +503,17 @@ function Home() {
           <IconButton
             variant="inverse"
             icon={<FeatherFacebook />}
-            onClick={() => gtagSendEvent("https://www.facebook.com/profile.php?id=61574014714387")}
+            href="https://www.facebook.com/profile.php?id=61574014714387"
           />
           <IconButton
             variant="inverse"
             icon={<FeatherInstagram />}
-            onClick={() => gtagSendEvent("https://www.instagram.com/miloriversbooks/")}
+            href="https://www.instagram.com/miloriversbooks/"
           />
           <IconButton
             variant="inverse"
             icon={<FeatherMail />}
-            onClick={() => gtagSendEvent("mailto:miloriversbooks@gmail.com")}
+            href="mailto:miloriversbooks@gmail.com"
           />
         </div>
         <span className="text-caption font-caption text-white text-center">

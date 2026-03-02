@@ -17,6 +17,9 @@ interface LinkButtonRootProps
   iconRight?: React.ReactNode;
   onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
   className?: string;
+  href?: string;
+  target?: string;
+  rel?: string;
 }
 
 const LinkButtonRoot = React.forwardRef<HTMLButtonElement, LinkButtonRootProps>(
@@ -29,72 +32,101 @@ const LinkButtonRoot = React.forwardRef<HTMLButtonElement, LinkButtonRootProps>(
       iconRight = null,
       className,
       type = "button",
+      href,
+      target = href ? "_blank" : undefined,
+      rel = href ? "noopener noreferrer" : undefined,
       ...otherProps
     }: LinkButtonRootProps,
     ref
   ) {
+    const baseClassName = SubframeUtils.twClassNames(
+      "group/a4ee726a flex cursor-pointer items-center gap-1 border-none bg-transparent",
+      { "flex-row flex-nowrap gap-1": size === "large" },
+      className
+    );
+
+    const iconComponent = icon ? (
+      <SubframeCore.IconWrapper
+        className={SubframeUtils.twClassNames(
+          "text-body font-body text-neutral-700 group-hover/a4ee726a:text-brand-700 group-disabled/a4ee726a:text-neutral-400 group-hover/a4ee726a:group-disabled/a4ee726a:text-neutral-400",
+          {
+            "text-caption font-caption": size === "small",
+            "text-heading-3 font-heading-3": size === "large",
+            "text-white group-hover/a4ee726a:text-white":
+              variant === "inverse",
+            "text-brand-700 group-hover/a4ee726a:text-brand-700":
+              variant === "brand",
+          }
+        )}
+      >
+        {icon}
+      </SubframeCore.IconWrapper>
+    ) : null;
+
+    const childrenComponent = children ? (
+      <span
+        className={SubframeUtils.twClassNames(
+          "text-body font-body text-neutral-700 group-hover/a4ee726a:text-brand-700 group-hover/a4ee726a:underline group-disabled/a4ee726a:text-neutral-400 group-hover/a4ee726a:group-disabled/a4ee726a:text-neutral-400 group-hover/a4ee726a:group-disabled/a4ee726a:no-underline",
+          {
+            "text-caption font-caption": size === "small",
+            "text-heading-3 font-heading-3": size === "large",
+            "text-white group-hover/a4ee726a:text-white":
+              variant === "inverse",
+            "text-brand-700 group-hover/a4ee726a:text-brand-700":
+              variant === "brand",
+          }
+        )}
+      >
+        {children}
+      </span>
+    ) : null;
+
+    const iconRightComponent = iconRight ? (
+      <SubframeCore.IconWrapper
+        className={SubframeUtils.twClassNames(
+          "text-body font-body text-neutral-700 group-hover/a4ee726a:text-brand-700 group-disabled/a4ee726a:text-neutral-400 group-hover/a4ee726a:group-disabled/a4ee726a:text-neutral-400",
+          {
+            "text-caption font-caption": size === "small",
+            "text-heading-3 font-heading-3": size === "large",
+            "text-white group-hover/a4ee726a:text-white":
+              variant === "inverse",
+            "text-brand-700 group-hover/a4ee726a:text-brand-700":
+              variant === "brand",
+          }
+        )}
+      >
+        {iconRight}
+      </SubframeCore.IconWrapper>
+    ) : null;
+
+    // If href is provided, render as an anchor tag
+    if (href) {
+      return (
+        <a
+          href={href}
+          target={target}
+          rel={rel}
+          className={baseClassName}
+          {...(otherProps as React.AnchorHTMLAttributes<HTMLAnchorElement>)}
+        >
+          {iconComponent}
+          {childrenComponent}
+          {iconRightComponent}
+        </a>
+      );
+    }
+
+    // Otherwise render as a button
     return (
       <button
-        className={SubframeUtils.twClassNames(
-          "group/a4ee726a flex cursor-pointer items-center gap-1 border-none bg-transparent",
-          { "flex-row flex-nowrap gap-1": size === "large" },
-          className
-        )}
+        className={baseClassName}
         ref={ref}
         type={type}
         {...otherProps}
       >
-        {icon ? (
-          <SubframeCore.IconWrapper
-            className={SubframeUtils.twClassNames(
-              "text-body font-body text-neutral-700 group-hover/a4ee726a:text-brand-700 group-disabled/a4ee726a:text-neutral-400 group-hover/a4ee726a:group-disabled/a4ee726a:text-neutral-400",
-              {
-                "text-caption font-caption": size === "small",
-                "text-heading-3 font-heading-3": size === "large",
-                "text-white group-hover/a4ee726a:text-white":
-                  variant === "inverse",
-                "text-brand-700 group-hover/a4ee726a:text-brand-700":
-                  variant === "brand",
-              }
-            )}
-          >
-            {icon}
-          </SubframeCore.IconWrapper>
-        ) : null}
-        {children ? (
-          <span
-            className={SubframeUtils.twClassNames(
-              "text-body font-body text-neutral-700 group-hover/a4ee726a:text-brand-700 group-hover/a4ee726a:underline group-disabled/a4ee726a:text-neutral-400 group-hover/a4ee726a:group-disabled/a4ee726a:text-neutral-400 group-hover/a4ee726a:group-disabled/a4ee726a:no-underline",
-              {
-                "text-caption font-caption": size === "small",
-                "text-heading-3 font-heading-3": size === "large",
-                "text-white group-hover/a4ee726a:text-white":
-                  variant === "inverse",
-                "text-brand-700 group-hover/a4ee726a:text-brand-700":
-                  variant === "brand",
-              }
-            )}
-          >
-            {children}
-          </span>
-        ) : null}
-        {iconRight ? (
-          <SubframeCore.IconWrapper
-            className={SubframeUtils.twClassNames(
-              "text-body font-body text-neutral-700 group-hover/a4ee726a:text-brand-700 group-disabled/a4ee726a:text-neutral-400 group-hover/a4ee726a:group-disabled/a4ee726a:text-neutral-400",
-              {
-                "text-caption font-caption": size === "small",
-                "text-heading-3 font-heading-3": size === "large",
-                "text-white group-hover/a4ee726a:text-white":
-                  variant === "inverse",
-                "text-brand-700 group-hover/a4ee726a:text-brand-700":
-                  variant === "brand",
-              }
-            )}
-          >
-            {iconRight}
-          </SubframeCore.IconWrapper>
-        ) : null}
+        {iconComponent}
+        {childrenComponent}
+        {iconRightComponent}
       </button>
     );
   }
